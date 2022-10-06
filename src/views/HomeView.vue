@@ -10,28 +10,14 @@
 
 <script>
 import CardComponent from '@/components/UI/CardComponent'
+import items from '../seeders/items'
 
 export default {
   name: 'HomeView',
   components: { CardComponent },
   data () {
     return {
-      items: [
-        {
-          id: 1,
-          title: 'Archer',
-          description: 'Archer Archer Archer Archer Archer',
-          img: require('./../assets/img/archer.png'),
-          level: 4
-        },
-        {
-          id: 2,
-          title: 'Wizard',
-          description: 'Wizard Wizard Wizard Wizard Wizard',
-          img: require('./../assets/img/wizard.png'),
-          level: 5
-        }
-      ]
+      items: items
     }
   }
 }
