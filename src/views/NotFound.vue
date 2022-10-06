@@ -1,10 +1,10 @@
 <template>
-<div>About</div>
+  <h1 class="title">404 Page not found</h1>
 </template>
 
 <script>
 export default {
-  name: 'AboutView'
+  name: 'NotFound'
 }
 </script>
 

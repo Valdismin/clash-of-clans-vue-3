@@ -1,30 +1,33 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="wrapper">
+    <header-component/>
+    <div class="wrapper-content">
+      <div class="container">
+       <router-view/>
+      </div>
+    </div>
+    <footer-component />
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HeaderComponent from '@/components/HeaderComponent'
+import FooterComponent from '@/components/FooterComponent'
+import { app, links } from '@/_config'
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: {
+    FooterComponent,
+    HeaderComponent
+  },
+  data () {
+    return {
+      title: app.title,
+      links: links
     }
   }
 }
+</script>
+
+<style lang="scss">
 </style>
