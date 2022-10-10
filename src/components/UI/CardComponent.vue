@@ -6,8 +6,15 @@
     <span class="card-name">{{ level }}</span>
     <span class="card-title">{{ title }}</span>
     <div class="card-body">
-      <slot></slot>
+      <slot name="body"></slot>
+      <router-link
+        class="link"
+        style="display: block; margin-top: 16px"
+        v-if="link"
+        :to="link"
+      >See more</router-link>
     </div>
+    <slot name="footer"></slot>
   </div>
 </template>
 
@@ -24,6 +31,9 @@ export default {
       required: true
     },
     urlImg: {
+      type: String
+    },
+    link: {
       type: String
     }
   }

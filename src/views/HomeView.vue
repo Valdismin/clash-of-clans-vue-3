@@ -1,9 +1,17 @@
 <template>
   <div class="md-body">
     <div class="card__wrapper" v-for="item in items" :key="item.id">
-      <CardComponent :title="item.title" :level="`${item.level} lvl`" :urlImg="item.img">
-        {{ item.description }}
-      </CardComponent>
+      <card-component :title="item.title" :level="`${item.level} lvl`" :urlImg="item.img" :link="`/${item.alias}`">
+        <template v-slot:body>{{ item.description }}</template>
+        <template v-slot:footer>
+          <div class="card-stats">
+            <div v-for="(stat, index) in item.info" :key="index" class="one-third">
+              <div class="stat-value">{{stat.value}}</div>
+              <div class="stat">{{stat.title}}</div>
+            </div>
+          </div>
+        </template>
+      </card-component>
     </div>
   </div>
 </template>
