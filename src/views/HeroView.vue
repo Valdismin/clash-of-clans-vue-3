@@ -5,12 +5,7 @@
       <h1 class="title" style="color:#ffffff">{{ item.title }}</h1>
       <p>{{ item.description }}</p>
 
-      <div class="card-stats">
-        <div v-for="(stat, index) in item.info" :key="index" class="one-third">
-          <div class="stat-value">{{stat.value}}</div>
-          <div class="stat">{{stat.title}}</div>
-        </div>
-      </div>
+      <card-stats :item="item"></card-stats>
       <div>
         <router-link
           class="btn btnPrimary"
@@ -25,9 +20,11 @@
 
 <script>
 import items from '@/seeders/items'
+import CardStats from '@/components/UI/CardStats'
 
 export default {
   name: 'HeroView',
+  components: { CardStats },
   data () {
     return {
       item: null
@@ -43,6 +40,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-hero {
   text-align: center;
+
   .card-stats {
     margin: 30px 0;
     border-radius: 14px;
