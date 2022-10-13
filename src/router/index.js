@@ -22,14 +22,18 @@ const routes = [
     component: HeroView
   },
   {
-    path: '/:PathMatch(.*)*',
+    path: '/404',
     name: '404',
     component: NotFound
+  },
+  {
+    path: '/:CatchAll(.*)',
+    redirect: '/404'
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 
